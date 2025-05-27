@@ -3,7 +3,7 @@
 -- vim.g.neovide_cursor_vfx_mode = "pixiedust" -- 拖尾粒子 [仙尘]
 -- vim.g.neovide_cursor_vfx_particle_density = 10.0 -- 粒子密度
 -- vim.g.neovide_cursor_vfx_particle_speed = 1.0 -- 粒子速度
-vim.o.guifont = is_windows and "CaskaydiaCove Nerd Font:h22" or "CaskaydiaCove Nerd Font:h14"
+vim.o.guifont = is_windows and "CaskaydiaCove Nerd Font,楷体:h22" or "CaskaydiaCove Nerd Font,楷体:h14"
 -- vim.g.neovide_cursor_trail_size = 0.85 -- 光标轨迹长度
 vim.g.neovide_cursor_animation_length = 0.075 -- 光标拖尾 [单位秒]
 vim.g.neovide_opacity = 0.85 -- 窗口透明度
