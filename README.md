@@ -23,7 +23,7 @@
 
 ## 🚀 入门
 
-您可以在 [此处](https://github.com/xiaoCRQ/WhimsVim_starter) 找到 **VhimsVim** 的入门模板,
+您可以在 [此处](https://github.com/XiaoCRQ/WhimsVim/tree/config#) 找到 **VhimsVim** 的入门模板,
 操作详解的 [Wiki](https://github.com/xiaoCRQ/WhimsVim/wiki)
 
 <details ><summary > Windows </summary>
@@ -32,10 +32,10 @@
 
   ```sh
   # cmd
-  git clone https://github.com/xiaoCRQ/WhimsVim_starter %USERPROFILE%\AppData\Local\nvim
+  git clone --branch config --single-branch https://github.com/XiaoCRQ/WhimsVim.git %USERPROFILE%\AppData\Local\nvim
 
   # powershell
-  git clone https://github.com/xiaoCRQ/WhimsVim_starter $env:LOCALAPPDATA\nvim
+  git clone --branch config --single-branch https://github.com/XiaoCRQ/WhimsVim.git $env:LOCALAPPDATA\nvim
   ```
 
 - 删除 `.git` 文件夹，以便稍后将其添加到您自己的存储库
@@ -61,7 +61,7 @@
 - 克隆
 
   ```sh
-  git clone https://github.com/xiaoCRQ/WhimsVim_starter ~/.config/nvim
+  git clone --branch config --single-branch https://github.com/XiaoCRQ/WhimsVim.git ~/.config/nvim
   ```
 
 - 删除 `.git` 文件夹，以便稍后将其添加到您自己的存储库
