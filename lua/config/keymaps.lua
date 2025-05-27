@@ -176,3 +176,8 @@ vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
 map("n", "<c-o>", ":lua require('lazyvim.util').telescope.config_files()() <CR>", opt) -- 打开配置文件列表
 map("n", "<c-f>", ":Telescope find_files <cr>", opt) -- 打开搜索文件
+
+map("n", "<F9>", ":lua Snacks.terminal.toggle()<CR>", opt)
+map("i", "<F9>", ":lua Snacks.terminal.toggle()<CR>", opt)
+map("v", "<F9>", ":lua Snacks.terminal.toggle()<CR>", opt)
+map("t", "<F9>", "<C-\\><C-n><cmd>lua Snacks.terminal.toggle()<CR>", opt)

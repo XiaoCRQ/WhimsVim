@@ -40,7 +40,7 @@ function encod(pattern)
 end
 
 -- 切换显示字体大小
-local font_size_temp = 14
+local font_size_temp = is_windows and 22 or 14
 
 function fontsize(font_size)
   if font_size >= 1 and font_size <= 50 then
@@ -101,50 +101,55 @@ end
 
 function c_debug(filetype)
   print("开始调试")
-  vim.cmd("w!") -- 保存文件
-  -- 构建要执行的命令字符串
-  local cmd
-  local output
+  vim.cmd("w!") -- 保存当前文件
+
+  local sep = is_windows and "\\" or "/"
+  local exe_ext = is_windows and ".exe" or ""
+
+  local cmd = ""
+  local output_dir
+  local output_path
+  local base_path = vim.fn.expand("%:p:h")
+  local filename_noext = vim.fn.expand("%:t:r")
+  local source_path = vim.fn.expand("%:p")
+
   if file_output then
-    output = "\\output\\"
-    -- 获取输出文件夹路径
-    local output_dir = vim.fn.expand("%:p:h") .. "\\output"
-    -- 检查 output 文件夹是否存在，如果不存在则创建
+    output_dir = base_path .. sep .. "output"
+    -- 检查并创建 output 文件夹
     if vim.fn.isdirectory(output_dir) == 0 then
       vim.fn.mkdir(output_dir, "p")
       print("已创建输出文件夹")
     end
   else
-    output = "\\"
+    output_dir = base_path
   end
-  if filetype == "c" then
-    cmd = "gcc "
-  elseif filetype == "cpp" then
-    cmd = "g++ "
-  else
-    print("错误!")
-  end
-  cmd = cmd
-    .. '"'
-    .. vim.fn.expand("%:p")
-    .. '"'
-    .. " -o "
-    .. '"'
-    .. vim.fn.expand("%:p:h")
-    .. output
-    .. vim.fn.expand("%:t:r")
-    .. ".exe"
-    .. '"'
 
-  -- print(cmd)
-  -- 执行异步作业
+  output_path = output_dir .. sep .. filename_noext .. exe_ext
+
+  if filetype == "c" then
+    cmd = "gcc"
+  elseif filetype == "cpp" then
+    cmd = "g++"
+  else
+    print("错误: 不支持的文件类型!")
+    return
+  end
+
+  -- 最终构建命令
+  cmd = cmd .. ' "' .. source_path .. '" -o "' .. output_path .. '"'
+
+  -- 异步启动编译任务
   local job_id = vim.fn.jobstart(cmd, {
-    on_exit = function(job_id, return_val, event)
+    on_exit = function(_, return_val, _)
       if return_val == 0 then
         print("编译完成")
         require("dap").continue()
+      else
+        print("编译失败，错误码: " .. return_val)
       end
     end,
+    stdout_buffered = true,
+    stderr_buffered = true,
   })
 end
 

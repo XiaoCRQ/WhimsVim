@@ -1,3 +1,4 @@
+is_windows = vim.loop.os_uname().sysname == "Windows_NT"
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
 require("config.neovide")
@@ -10,4 +11,4 @@ require("dap-config.init")
 vim.o.swapfile = false -- 关闭 打开文件询问
 
 vim.o.fileencodings = "ucs-bom,utf-8,gbk,default,latin1"
-vim.o.fileencoding = "gbk"
+vim.o.fileencoding = is_windows and "gbk" or "utf-8"

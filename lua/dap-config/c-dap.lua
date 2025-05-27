@@ -1,16 +1,27 @@
 local dap = require("dap")
+
+local sep = is_windows and "\\" or "/"
+local codelldb_path = vim.fn.stdpath("data")
+  .. sep
+  .. "mason"
+  .. sep
+  .. "packages"
+  .. sep
+  .. "codelldb"
+  .. sep
+  .. "extension"
+  .. sep
+  .. "adapter"
+  .. sep
+  .. "codelldb"
+
 dap.adapters.codelldb = {
   type = "server",
   port = "${port}",
   executable = {
-    -- CHANGE THIS to your path!
-    -- command = "/absolute/path/to/codelldb/extension/adapter/codelldb",
-    -- vim.fn.stdpath("data") 为nvim-data路径
-    command = vim.fn.stdpath("data") .. "\\mason\\packages\\codelldb\\extension\\adapter\\codelldb",
+    command = codelldb_path,
     args = { "--port", "${port}" },
-
-    -- On windows you may have to uncomment this:
-    -- detached = false,
+    -- detached = not is_windows,  -- 可选，Linux 下保持 true
   },
 }
 

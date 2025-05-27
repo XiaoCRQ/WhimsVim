@@ -4,6 +4,8 @@
 
 file_output = true -- 是否输出output
 
+vim.opt.clipboard = "unnamedplus"
+
 -- 中文输入法配置
 vim.opt.iskeyword = "_,49-57,A-Z,a-z"
 

@@ -30,9 +30,18 @@ return {
           name = "Dict",
           min_keyword_length = 3,
           opts = {
-            -- 使用 vim.fn.stdpath 获取 Neovim 配置路径
             dictionary_files = { vim.fn.expand(vim.fn.stdpath("config") .. "/lua/resource/words_alpha.txt") },
           },
+          score_offset = 40, -- 设置 dictionary 的优先级
+        },
+        lsp = {
+          score_offset = 100, -- 设置 LSP 的优先级
+        },
+        path = {
+          score_offset = 80, -- 设置 path 的优先级
+        },
+        buffer = {
+          score_offset = 60, -- 设置 buffer 的优先级
         },
       },
     },
