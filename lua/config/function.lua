@@ -286,6 +286,6 @@ function window_dap_add(cmd)
   windowsize()
 end
 
--- //———————————— 调试函数 ————————————//
+-- //———————————— 用户函数 ————————————//
 
 function test_user() end

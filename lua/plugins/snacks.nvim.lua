@@ -2,6 +2,7 @@ return {
   "folke/snacks.nvim",
   lazy = false,
   opts = {
+    statuscolumn = {},
     terminal = {
       -- 窗口样式：float | split | bottom（默认 "bottom"）
       win = { style = "float" },
@@ -105,9 +106,9 @@ return {
         {
           section = "terminal",
           -- cmd = "chafa -c full --fg-only --symbols solid --align=mid "
-          cmd = "chafa --format=symbols -c full --symbols solid --align=mid --clear "
-            .. vim.fn.stdpath("config")
-            .. "/lua/logo/v-3.gif",
+          cmd = "chafa --format=symbols -c full --symbols solid --align=mid --clear --probe off " .. vim.fn.stdpath(
+            "config"
+          ) .. "/lua/logo/v-3.gif",
           -- cmd = "",
           height = 18,
           padding = 1,
