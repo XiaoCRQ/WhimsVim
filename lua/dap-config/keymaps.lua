@@ -24,6 +24,7 @@ map( -- 关闭调试
 -- 根据文件类型执行相应的调试功能
 -- 打开调试窗口
 map("n", "<F5>", ":lua debug_by_filetype()<CR>", opt)
+map("n", "<leader>5", ":lua debug_by_filetype()<CR>", opt)
 map("n", "<m-F5>", ":lua debug_by_filetype()<CR>", opt)
 
 -- 设置断.点

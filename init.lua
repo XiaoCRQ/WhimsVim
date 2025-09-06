@@ -12,3 +12,9 @@ vim.o.swapfile = false -- 关闭 打开文件询问
 
 vim.o.fileencodings = "ucs-bom,utf-8,gbk,default,latin1"
 vim.o.fileencoding = is_windows and "gbk" or "utf-8"
+
+vim.cmd([[
+  highlight StatusColumnLineNumber guibg=#1e1e2e
+  highlight StatusColumnSign       guibg=#1e1e2e
+  highlight StatusColumnSeparator  guibg=#1e1e2e
+]])
