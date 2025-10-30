@@ -9,6 +9,7 @@ return {
 
       -- 使用的 shell，支持字符串或字符串数组；默认为 vim.o.shell
       shell = vim.o.shell,
+      -- shell = "/usr/bin/fish",
 
       -- 如果要用自定义终端（比如 termopen 以外），可以 override
       -- override = function(cmd, opts) end,

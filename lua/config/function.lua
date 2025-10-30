@@ -99,7 +99,7 @@ function file_output_switch()
   end
 end
 
-function c_debug(filetype)
+function c_compiler(filetype)
   print("开始调试")
   vim.cmd("w!") -- 保存当前文件
 
@@ -134,12 +134,14 @@ function c_debug(filetype)
     print("错误: 不支持的文件类型!")
     return
   end
-
   -- 最终构建命令
   cmd = cmd .. ' "' .. source_path .. '" -o "' .. output_path .. '"'
+  return cmd
+end
 
+function c_debug(filetype)
   -- 异步启动编译任务
-  local job_id = vim.fn.jobstart(cmd, {
+  local job_id = vim.fn.jobstart(c_compiler(filetype), {
     on_exit = function(_, return_val, _)
       if return_val == 0 then
         print("编译完成")
@@ -285,6 +287,17 @@ function window_dap_add(cmd)
   print("当前调试窗口占比 " .. window_size * 100 .. "%")
   windowsize()
 end
+
+-- codeforce 系列函数
+function codeforce_start()
+  vim.fn.chdir(Cf_path)
+  print("已打开Codeforce目录")
+end
+
+-- function Assistant_start()
+--   vim.fn.chdir(Cf_path)
+--   print("已打开Codeforce目录")
+-- end
 
 -- //———————————— 用户函数 ————————————//
 

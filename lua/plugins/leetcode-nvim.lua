@@ -14,7 +14,8 @@ return {
   opts = {
     -- 配置放在这里
     cn = {
-      enabled = true,
+      -- 中国版
+      enabled = false,
     },
     {
       ---@type string

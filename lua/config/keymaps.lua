@@ -153,22 +153,20 @@ map("n", "<leader>lkd", ":Leet cookie delete<CR>", opt)
 map("n", "<leader>lku", ":Leet cookie update<CR>", opt)
 map("n", "<leader>lkc", ":Leet cache<CR>", opt)
 map("n", "<leader>lh", ":h leetcode.nvim-commands<CR>", opt)
-
--- 使用 PowerShell 作为 Neovim 的终端 vim.opt.shell = "powershell"
 -- 按下 F5 键打开一个小的弹窗 PowerShell 终端
 -- vim.api.nvim_set_keymap("n", "<F5>", "<cmd>botright terminal<CR>", { noremap = true, silent = true })
 
 -- 设置终端模式下的按键映射
 function _G.set_terminal_keymaps()
-  local opts = { buffer = 0 }
-  vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
-  vim.keymap.set("t", "jj", [[<C-\><C-n>]], opts)
-  vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts) -- 窗口左移
-  vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts) -- 窗口下移
-  vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts) -- 窗口上移
-  vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts) -- 窗口右移
-  vim.keymap.set("t", "qq", [[<C-\><C-n><C-w>]], opts) -- 关闭终端
-  vim.keymap.set("n", "qq", [[<C-\><C-n><C-w>]], opts) -- 关闭终端
+  local opt = { buffer = 0 }
+  vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opt)
+  vim.keymap.set("t", "jj", [[<C-\><C-n>]], opt)
+  vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opt) -- 窗口左移
+  vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opt) -- 窗口下移
+  vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opt) -- 窗口上移
+  vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opt) -- 窗口右移
+  vim.keymap.set("t", "qq", [[<C-\><C-n><C-w>]], opt) -- 关闭终端
+  vim.keymap.set("n", "qq", [[<C-\><C-n><C-w>]], opt) -- 关闭终端
 end
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
@@ -185,3 +183,10 @@ map("n", "<F9>", ":lua Snacks.terminal.toggle()<CR>", opt)
 map("i", "<F9>", ":lua Snacks.terminal.toggle()<CR>", opt)
 map("v", "<F9>", ":lua Snacks.terminal.toggle()<CR>", opt)
 map("t", "<F9>", "<C-\\><C-n><cmd>lua Snacks.terminal.toggle()<CR>", opt)
+
+-- Codeforces 快捷操作
+-- map("n", "<leader>cds", ":lua codeforce_start()<CR>", opt)
+-- map("n", "<leader>cde", ":EnterContest ", opt) -- Enter contest (输入 contest ID)
+-- map("n", "<leader>cdt", ":TestCurrent<CR>", opt) -- 测试当前题目 (sample tests)
+-- map("n", "<leader>cdr", ":RunCurrent<CR>", opt) -- 运行当前题目
+-- map("n", "<leader>cdc", ":CreateTestCase<CR>", opt) -- 新建手动测试

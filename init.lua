@@ -1,6 +1,9 @@
 is_windows = vim.loop.os_uname().sysname == "Windows_NT"
+Cf_path = "~/Work/Program/CodeForces"
+
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
+require("config.competitest_keymaps")
 require("config.neovide")
 require("config.function")
 require("lsp.init")
