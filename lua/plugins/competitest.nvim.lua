@@ -5,7 +5,7 @@ return {
     -- ===============================
     -- 基础路径设置
     -- ===============================
-    local base_dir = vim.fn.expand("~/Work/Program/CodeForces") -- 刷题主目录
+    local base_dir = vim.fn.expand(CF_PATH) -- 刷题主目录
     local template_dir = base_dir .. "/Template" -- 模板文件目录
     local output_dir = base_dir .. "/Output" -- 编译输出目录
 
@@ -130,11 +130,11 @@ return {
         c = {
           exec = "gcc",
           -- 传入绝对路径的源文件，输出到 Output 目录（绝对路径）
-          args = { "-Wall", "$(FABSPATH)", "-o", output_dir .. "/$(FNOEXT)" },
+          args = { "-O2", "-Wall", "$(FABSPATH)", "-o", output_dir .. "/$(FNOEXT)" },
         },
         cpp = {
           exec = "g++",
-          args = { "-Wall", "$(FABSPATH)", "-o", output_dir .. "/$(FNOEXT)" },
+          args = { "-O2", "-Wall", "$(FABSPATH)", "-o", output_dir .. "/$(FNOEXT)" },
         },
         rust = {
           exec = "rustc",

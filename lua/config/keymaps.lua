@@ -7,8 +7,13 @@ local keymap = vim.keymap
 keymap.set("n", "N", function()
   vim.cmd("normal! 5j")
 end, { noremap = true, silent = true })
-
 keymap.set("n", "M", function()
+  vim.cmd("normal! 5k")
+end, { noremap = true, silent = true })
+keymap.set("v", "N", function()
+  vim.cmd("normal! 5j")
+end, { noremap = true, silent = true })
+keymap.set("v", "M", function()
   vim.cmd("normal! 5k")
 end, { noremap = true, silent = true })
 keymap.set("n", ";;", ":")
@@ -97,14 +102,13 @@ keymap.set("i", "“”", '""<left>')
 keymap.set("i", "”“", '""<left>')
 keymap.set("i", "\\", "\\")
 
--- keymap.set("", "", "")
-
 local map = vim.api.nvim_set_keymap -- 创建键盘映射的函数
 local opt = { -- 选项表，用于指定键盘映射的参数
   noremap = true, -- 禁止键盘映射的递归
   silent = true, -- 执行键盘映射时不显示命令行的消息
 }
 
+map("n", "<leader>rn", ":IncRename ", opt)
 map("n", "<m-h>", "<C-w>h", opt)
 map("n", "<m-l>", "<C-w>l", opt)
 map("n", "<m-j>", "<C-w>j", opt)
@@ -171,22 +175,11 @@ end
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
-
-map("n", "<c-o>", ":lua require('lazyvim.util').telescope.config_files()() <CR>", opt) -- 打开配置文件列表
-map("n", "<c-f>", ":Telescope find_files <cr>", opt) -- 打开搜索文件
-
-map("n", "<leader>9", ":lua Snacks.terminal.toggle()<CR>", opt)
-map("i", "<leader>9", ":lua Snacks.terminal.toggle()<CR>", opt)
-map("v", "<leader>9", ":lua Snacks.terminal.toggle()<CR>", opt)
-map("t", "<leader>9", "<C-\\><C-n><cmd>lua Snacks.terminal.toggle()<CR>", opt)
-map("n", "<F9>", ":lua Snacks.terminal.toggle()<CR>", opt)
-map("i", "<F9>", ":lua Snacks.terminal.toggle()<CR>", opt)
-map("v", "<F9>", ":lua Snacks.terminal.toggle()<CR>", opt)
-map("t", "<F9>", "<C-\\><C-n><cmd>lua Snacks.terminal.toggle()<CR>", opt)
-
--- Codeforces 快捷操作
--- map("n", "<leader>cds", ":lua codeforce_start()<CR>", opt)
--- map("n", "<leader>cde", ":EnterContest ", opt) -- Enter contest (输入 contest ID)
--- map("n", "<leader>cdt", ":TestCurrent<CR>", opt) -- 测试当前题目 (sample tests)
--- map("n", "<leader>cdr", ":RunCurrent<CR>", opt) -- 运行当前题目
--- map("n", "<leader>cdc", ":CreateTestCase<CR>", opt) -- 新建手动测试
+-- map("n", "<leader>9", ":lua Snacks.terminal.toggle()<CR>", opt)
+-- map("i", "<leader>9", ":lua Snacks.terminal.toggle()<CR>", opt)
+-- map("v", "<leader>9", ":lua Snacks.terminal.toggle()<CR>", opt)
+-- map("t", "<leader>9", "<C-\\><C-n><cmd>lua Snacks.terminal.toggle()<CR>", opt)
+-- map("n", "<F9>", ":lua Snacks.terminal.toggle()<CR>", opt)
+-- map("i", "<F9>", ":lua Snacks.terminal.toggle()<CR>", opt)
+-- map("v", "<F9>", ":lua Snacks.terminal.toggle()<CR>", opt)
+-- map("t", "<F9>", "<C-\\><C-n><cmd>lua Snacks.terminal.toggle()<CR>", opt)

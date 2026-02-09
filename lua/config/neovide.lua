@@ -15,7 +15,7 @@ vim.g.neovide_profiler = false -- 帧率显示
 
 -- vim.g.neovide_cursor_vfx_mode = "sonicboom" -- 光标特效 音爆
 -- vim.g.neovide_cursor_vfx_mode = "ripple" -- 光标特效 波纹
-vim.g.neovide_cursor_vfx_mode = "wireframe" -- 光标特效 线框
+-- vim.g.neovide_cursor_vfx_mode = "wireframe" -- 光标特效 线框
 
 -- 窗口边框间距
 vim.g.neovide_padding_top = 0

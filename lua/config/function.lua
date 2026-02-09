@@ -114,7 +114,7 @@ function c_compiler(filetype)
   local source_path = vim.fn.expand("%:p")
 
   if file_output then
-    output_dir = base_path .. sep .. "output"
+    output_dir = base_path .. sep .. "Output"
     -- 检查并创建 output 文件夹
     if vim.fn.isdirectory(output_dir) == 0 then
       vim.fn.mkdir(output_dir, "p")
@@ -135,7 +135,7 @@ function c_compiler(filetype)
     return
   end
   -- 最终构建命令
-  cmd = cmd .. ' "' .. source_path .. '" -o "' .. output_path .. '"'
+  cmd = cmd .. " -O2 -Wall " .. ' "' .. source_path .. '" -o "' .. output_path .. '"'
   return cmd
 end
 
@@ -290,7 +290,7 @@ end
 
 -- codeforce 系列函数
 function codeforce_start()
-  vim.fn.chdir(Cf_path)
+  vim.fn.chdir(CF_PATH)
   print("已打开Codeforce目录")
 end
 

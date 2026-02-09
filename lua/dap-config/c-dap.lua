@@ -36,7 +36,7 @@ dap.configurations.cpp = {
     program = function()
       local output
       if file_output then
-        output = "/output/"
+        output = "/Output/"
       else
         output = "/"
       end

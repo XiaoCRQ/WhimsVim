@@ -107,9 +107,9 @@ return {
         {
           section = "terminal",
           -- cmd = "chafa -c full --fg-only --symbols solid --align=mid "
-          cmd = "chafa --format=symbols -c full --symbols solid --align=mid --clear --probe off " .. vim.fn.stdpath(
+          cmd = "chafa -c full --format symbols --symbols solid --align=mid --clear --probe off " .. vim.fn.stdpath(
             "config"
-          ) .. "/lua/logo/v-3.gif",
+          ) .. "/lua/logo/v-3.gif ",
           -- cmd = "",
           height = 18,
           padding = 1,

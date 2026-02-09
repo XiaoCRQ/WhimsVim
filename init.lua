@@ -1,5 +1,5 @@
 is_windows = vim.loop.os_uname().sysname == "Windows_NT"
-Cf_path = "~/Work/Program/CodeForces"
+CF_PATH = "~/Work/Program/CodeForces"
 
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")

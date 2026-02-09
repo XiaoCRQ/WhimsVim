@@ -21,6 +21,7 @@ return {
         "fallback",
       },
       ["<S-Tab>"] = { "snippet_backward", "fallback" },
+      -- ["<CR>"] = false, -- 关闭Enter补全
     },
     sources = {
       default = { "dictionary", "lsp", "path", "buffer" },

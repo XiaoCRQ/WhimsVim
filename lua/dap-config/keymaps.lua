@@ -17,6 +17,17 @@ map( -- 关闭调试
     .. "<C-w>o<CR>", -- 切换到其他窗口
   opt -- 使用上面定义的选项表
 )
+map( -- 关闭调试
+  "n", -- 在普通模式下执行
+  "<leader>4", -- 触发的键盘快捷键
+  ":lua require'dap'.close()<CR>" -- 关闭调试会话
+    .. ":lua require'dap'.terminate()<CR>" -- 终止调试会话
+    .. ":lua require'dap.repl'.close()<CR>" -- 关闭调试会话的 REPL
+    .. ":lua require'dapui'.close()<CR>" -- 关闭调试界面
+    .. ":lua require('dap').clear_breakpoints()<CR>" -- 清除断点
+    .. "<C-w>o<CR>", -- 切换到其他窗口
+  opt -- 使用上面定义的选项表
+)
 -- 开始/继续
 -- map("n", "<F5>", ":lua require'dap'.continue()<CR>", opt) -- 开始或继续调试
 -- map("n", "<F5>", ":lua execute_with_cd('powershell cexe')<CR>:lua require'dap'.continue()<CR>", opt) -- 开始或继续调试[编译并调试]

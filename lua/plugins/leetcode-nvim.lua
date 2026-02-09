@@ -15,7 +15,7 @@ return {
     -- 配置放在这里
     cn = {
       -- 中国版
-      enabled = false,
+      enabled = true,
     },
     {
       ---@type string
