@@ -1,15 +1,6 @@
 ![image](https://raw.githubusercontent.com/xiaoCRQ/WhimsVim/main/img/dashboard.png)
 
-✨ WhimsVim 是由 [💤 lazy.nvim](https://github.com/folke/lazy.nvim) 驱动并基于[💤 lazyvim](https://github.com/LazyVim/LazyVim)的一套个性化 Neovim 配置，可以轻松自定义和扩展您的配置。
-不必在从头开始或使用预制发行版之间做选择
-
-## 🌟 特性
-
-- 🔥 将你的 Neovim 变成一个成熟的 IDE
-- 💤 使用 [lazy.nvim](https://github.com/folke/lazy.nvim) 轻松自定义和扩展您的配置
-- 📦 预配置了大量插件，随时可用
-- 🧹 优秀的美化
-- 🚀 快如闪电
+✨ WhimsVim 是由基于[💤 lazyvim](https://github.com/LazyVim/LazyVim)的一套个性化 Neovim 配置
 
 ## ⚡️ 要求
 
@@ -20,10 +11,9 @@
 - 拥有 powershell 终端 **_(可选-用于仪表盘动画)_**
 - [C/C++ 编译器](https://winlibs.com/) **(可选)**
 
-## 🚀 入门
+## 🚀 配置
 
-您可以在 [此处](https://github.com/XiaoCRQ/WhimsVim/tree/config#) 找到 **VhimsVim** 的入门模板,
-操作详解的 [Wiki](https://github.com/xiaoCRQ/WhimsVim/wiki)
+您可以在 [此处](https://github.com/XiaoCRQ/WhimsVim/tree/config#) 找到 **VhimsVim** 的配置
 
 <details ><summary > Windows </summary>
 
@@ -104,31 +94,3 @@ rm -rf ~/.local/share/nvim
 ```
 
 </details>
-
----
-
-## 📂 文件结构
-
-config 下的文件会在适当的时候自动加载，所以你不需要手动引入这些文件。
-**WhimsVim** 带有一组默认配置文件，这些文件将在您的配置**之前**加载。
-
-您可以在 `lua/plugins/` 下添加自定义插件配置(specs)。
-[lazy.nvim](https://github.com/folke/lazy.nvim) 会自动加载这些文件。
-
-<pre>
-~/.config/nvim
-├── lua
-│   ├── config
-│   │   ├── autocmds.lua
-│   │   ├── keymaps.lua
-│   │   ├── lazy.lua
-│   │   └── options.lua
-│   │   └── **
-│   └── plugins
-│       ├── spec1.lua
-│       ├── **
-│       └── spec2.lua
-└── init.lua
-</pre>
-
-## ⚙️ Configuration
