@@ -31,7 +31,7 @@ return {
           name = "Dict",
           min_keyword_length = 3,
           opts = {
-            dictionary_files = { vim.fn.expand(vim.fn.stdpath("config") .. "/lua/resource/words_alpha.txt") },
+            -- dictionary_files = { vim.fn.expand(vim.fn.stdpath("config") .. "/lua/resource/words_alpha.txt") },
           },
           score_offset = 40, -- 设置 dictionary 的优先级
         },

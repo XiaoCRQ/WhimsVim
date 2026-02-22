@@ -2,184 +2,151 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
--- 键盘快捷输入
-local keymap = vim.keymap
-keymap.set("n", "N", function()
-  vim.cmd("normal! 5j")
-end, { noremap = true, silent = true })
-keymap.set("n", "M", function()
-  vim.cmd("normal! 5k")
-end, { noremap = true, silent = true })
-keymap.set("v", "N", function()
-  vim.cmd("normal! 5j")
-end, { noremap = true, silent = true })
-keymap.set("v", "M", function()
-  vim.cmd("normal! 5k")
-end, { noremap = true, silent = true })
-keymap.set("n", ";;", ":")
-keymap.set("n", "U", "<C-r>")
-keymap.set("n", "11", "!")
-keymap.set("n", "22", "@")
-keymap.set("n", "33", "#")
-keymap.set("n", "44", "$")
-keymap.set("n", "55", "%")
-keymap.set("n", "66", "^")
-keymap.set("n", "77", "&")
-keymap.set("n", "88", "*")
-keymap.set("n", "99", "()<left>")
-keymap.set("n", "00", ")")
+local map = vim.keymap.set
+local opt = { noremap = true, silent = true }
 
-keymap.set("i", "jj", "<Esc>")
-keymap.set("i", "1", "1")
-keymap.set("i", "2", "2")
-keymap.set("i", "3", "3")
-keymap.set("i", "4", "4")
-keymap.set("i", "5", "5")
-keymap.set("i", "6", "6")
-keymap.set("i", "7", "7")
-keymap.set("i", "8", "8")
-keymap.set("i", "9", "9")
-keymap.set("i", "0", "0")
-keymap.set("i", "11", "!")
-keymap.set("i", "22", "@")
-keymap.set("i", "33", "#")
-keymap.set("i", "44", "$")
-keymap.set("i", "55", "%")
-keymap.set("i", "66", "^")
-keymap.set("i", "77", "&")
-keymap.set("i", "88", "*")
-keymap.set("i", "99", "()<left>")
--- keymap.set("i", "99", "(")
-keymap.set("i", "00", ")")
-keymap.set("i", "-", "-")
-keymap.set("i", "--", "--")
-keymap.set("i", "---", "_")
-keymap.set("i", "=", "=")
-keymap.set("i", "==", "==")
-keymap.set("i", "===", "+")
-keymap.set("i", ",,", "<")
-keymap.set("i", ",,,", "<><left>")
--- keymap.set("i", ",,", "<")
-keymap.set("i", "..", ">")
-keymap.set("i", "[[", "{}<left>")
--- keymap.set("i", "[[", "{")
-keymap.set("i", "]]", "}")
-keymap.set("i", ";;", ":")
-keymap.set("i", "``", "~")
-keymap.set("i", "//", "//")
-keymap.set("i", "///", "?")
-keymap.set("i", "\\\\", "|")
-keymap.set("i", "【", "【】<left>")
-keymap.set("i", "【【", "[]<left>")
-keymap.set("i", "【【【", "{}<left>")
--- keymap.set("i", "【", "【")
--- keymap.set("i", "【【", "[")
--- keymap.set("i", "【【【", "{")
-keymap.set("i", "】", "】")
-keymap.set("i", "】】", "]")
-keymap.set("i", "】】】", "}")
-keymap.set("i", ",", ",")
-keymap.set("i", ".", ".")
-keymap.set("i", "[", "[]<left>")
--- keymap.set("i", "[", "[")
-keymap.set("i", "]", "]")
-keymap.set("i", ";", ";")
-keymap.set("i", "`", "`")
-keymap.set("i", "/", "/")
-keymap.set("i", "：", ":")
--- keymap.set("i", "；", ";")
--- keymap.set("i", "；；", ":")
-keymap.set("i", "，", "，")
-keymap.set("i", "，，", "<")
-keymap.set("i", "，，，", "<><left>")
-keymap.set("i", "'", "''<left>")
-keymap.set("i", "‘", "''<left>")
-keymap.set("i", "’", "''<left>")
-keymap.set("i", "''", '""<left>')
-keymap.set("i", "’‘", '""<left>')
-keymap.set("i", "‘’", '""<left>')
-keymap.set("i", "“”", '""<left>')
-keymap.set("i", "”“", '""<left>')
-keymap.set("i", "\\", "\\")
-
-local map = vim.api.nvim_set_keymap -- 创建键盘映射的函数
-local opt = { -- 选项表，用于指定键盘映射的参数
-  noremap = true, -- 禁止键盘映射的递归
-  silent = true, -- 执行键盘映射时不显示命令行的消息
-}
-
-map("n", "<leader>rn", ":IncRename ", opt)
-map("n", "<m-h>", "<C-w>h", opt)
-map("n", "<m-l>", "<C-w>l", opt)
-map("n", "<m-j>", "<C-w>j", opt)
-map("n", "<m-k>", "<C-w>k", opt)
-
-map("n", "q", ":bd<CR>", opt)
-map("n", "qf", ":bd<CR>", opt)
-map("n", "qq", ":q!<CR>", opt)
-map("n", "qa", ":qa!<CR>", opt)
-map("n", "qw", ":wq!<CR>", opt)
-map("n", "qwa", ":w!<CR> :qa<CR>", opt)
-map("n", "w", ":w!<CR>", opt)
-map("n", "wq", ":wq!<CR>", opt)
-map("n", "wqa", ":w!<CR> :qa<CR>", opt)
--- map("n", "<F2>1", ":e ++enc=utf-8<CR>", opt)
--- map("n", "<F2>2", ":e ++enc=gbk<CR>", opt)
-map("n", "<F2>u", ":lua encod('u')<CR>", opt)
-map("n", "<F2>g", ":lua encod('g')<CR>", opt)
-map("n", "<F2>h", ":lua encod('h')<CR>", opt)
-map("n", "<F2>i", ":lua encod('i')<CR>", opt)
-map("n", "<F2>gb", ":lua encod('gb')<CR>", opt)
-map("n", "<F2>bg", ":lua encod('bg')<CR>", opt)
-map("n", "<F2>", ":lua encod('0')<CR>", opt)
+map("i", "jj", "<Esc>", opt)
 map("n", "<C-->", ":lua font('-')<CR>", opt)
 map("v", "<C-->", ":lua font('-')<CR>", opt)
 map("n", "<C-=>", ":lua font('+')<CR>", opt)
 map("v", "<C-=>", ":lua font('+')<CR>", opt)
-map("n", "<S-W>", ":vsp<CR>", opt)
-map("n", "<S-S>", ":sp<CR>", opt)
+map("n", "<leader>rn", ":IncRename ", opt)
+map("n", ";", ":lua Complete_semicolon()<CR>", opt)
 
--- leetcode 快捷操作
-map("n", "<leader>lc", ":Leet <CR>", opt)
-map("n", "<leader>lg", ":Leet lang<CR>", opt)
-map("n", "<leader>ls", ":Leet submit<CR>", opt)
-map("n", "<leader>ln", ":Leet run<CR>", opt)
-map("n", "<leader>le", ":Leet exit<CR>", opt)
-map("n", "<leader>li", ":Leet info<CR>", opt)
-map("n", "<leader>lta", ":Leet tabs<CR>", opt)
-map("n", "<leader>ly", ":Leet yank<CR>", opt)
-map("n", "<leader>ld", ":Leet daily<CR>", opt)
-map("n", "<leader>lts", ":Leet list<CR>", opt)
-map("n", "<leader>lo", ":Leet open<CR>", opt)
-map("n", "<leader>lre", ":Leet reset<CR>", opt)
-map("n", "<leader>lrt", ":Leet restore<CR>", opt)
-map("n", "<leader>lkd", ":Leet cookie delete<CR>", opt)
-map("n", "<leader>lku", ":Leet cookie update<CR>", opt)
-map("n", "<leader>lkc", ":Leet cache<CR>", opt)
-map("n", "<leader>lh", ":h leetcode.nvim-commands<CR>", opt)
--- 按下 F5 键打开一个小的弹窗 PowerShell 终端
--- vim.api.nvim_set_keymap("n", "<F5>", "<cmd>botright terminal<CR>", { noremap = true, silent = true })
-
--- 设置终端模式下的按键映射
-function _G.set_terminal_keymaps()
-  local opt = { buffer = 0 }
-  vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opt)
-  vim.keymap.set("t", "jj", [[<C-\><C-n>]], opt)
-  vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opt) -- 窗口左移
-  vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opt) -- 窗口下移
-  vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opt) -- 窗口上移
-  vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opt) -- 窗口右移
-  vim.keymap.set("t", "qq", [[<C-\><C-n><C-w>]], opt) -- 关闭终端
-  vim.keymap.set("n", "qq", [[<C-\><C-n><C-w>]], opt) -- 关闭终端
+for _, mode in ipairs({ "n", "v" }) do
+  map(mode, "N", "5j", opt)
+  map(mode, "M", "5k", opt)
 end
 
--- if you only want these mappings for toggle term use term://*toggleterm#* instead
-vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
--- map("n", "<leader>9", ":lua Snacks.terminal.toggle()<CR>", opt)
--- map("i", "<leader>9", ":lua Snacks.terminal.toggle()<CR>", opt)
--- map("v", "<leader>9", ":lua Snacks.terminal.toggle()<CR>", opt)
--- map("t", "<leader>9", "<C-\\><C-n><cmd>lua Snacks.terminal.toggle()<CR>", opt)
--- map("n", "<F9>", ":lua Snacks.terminal.toggle()<CR>", opt)
--- map("i", "<F9>", ":lua Snacks.terminal.toggle()<CR>", opt)
--- map("v", "<F9>", ":lua Snacks.terminal.toggle()<CR>", opt)
--- map("t", "<F9>", "<C-\\><C-n><cmd>lua Snacks.terminal.toggle()<CR>", opt)
+local normal_symbols = {
+  [";;"] = ":",
+  ["U"] = "<C-r>",
+  ["11"] = "!",
+  ["22"] = "@",
+  ["33"] = "#",
+  ["44"] = "$",
+  ["55"] = "%",
+  ["66"] = "^",
+  ["77"] = "&",
+  ["88"] = "*",
+  ["99"] = "()<left>",
+  ["00"] = ")",
+}
+
+for k, v in pairs(normal_symbols) do
+  map("n", k, v, opt)
+end
+
+local shift_symbols = {
+  ["11"] = "!",
+  ["22"] = "@",
+  ["33"] = "#",
+  ["44"] = "$",
+  ["55"] = "%",
+  ["66"] = "^",
+  ["77"] = "&",
+  ["88"] = "*",
+  ["99"] = "()<left>",
+  ["00"] = ")",
+}
+
+for k, v in pairs(shift_symbols) do
+  map("i", k, v, opt)
+end
+
+local pairs_map = {
+  ["["] = "[]<left>",
+  ["[["] = "{}<left>",
+  [",,"] = "<",
+  [",,,"] = "<><left>",
+  [".."] = ">",
+  ["///"] = "?",
+  ["\\\\"] = "|",
+}
+
+for k, v in pairs(pairs_map) do
+  map("i", k, v, opt)
+end
+
+local win_map = {
+  ["<m-h>"] = "<C-w>h",
+  ["<m-l>"] = "<C-w>l",
+  ["<m-j>"] = "<C-w>j",
+  ["<m-k>"] = "<C-w>k",
+  ["<S-W>"] = ":vsp<CR>",
+  ["<S-S>"] = ":sp<CR>",
+}
+
+for k, v in pairs(win_map) do
+  map("n", k, v, opt)
+end
+
+local cmd_map = {
+  q = ":bd<CR>",
+  qq = ":q!<CR>",
+  qa = ":qa!<CR>",
+  qw = ":wq!<CR>",
+  qwa = ":w!<CR>:qa<CR>",
+  w = ":w!<CR>",
+  wq = ":wq!<CR>",
+  wqa = ":w!<CR>:qa<CR>",
+}
+
+for k, v in pairs(cmd_map) do
+  map("n", k, v, opt)
+end
+
+function _G.set_terminal_keymaps()
+  local opt = { buffer = 0 }
+
+  map("t", "<esc>", [[<C-\><C-n>]], opt)
+  map("t", "jj", [[<C-\><C-n>]], opt)
+
+  for _, key in ipairs({ "h", "j", "k", "l" }) do
+    map("t", "<C-" .. key .. ">", "<Cmd>wincmd " .. key .. "<CR>", opt)
+  end
+
+  map("t", "qq", [[<C-\><C-n><C-w>]], opt)
+end
+
+map( -- 关闭调试
+  "n", -- 在普通模式下执行
+  "<F4>", -- 触发的键盘快捷键
+  ":lua require'dap'.close()<CR>" -- 关闭调试会话
+    .. ":lua require'dap'.terminate()<CR>" -- 终止调试会话
+    .. ":lua require'dap.repl'.close()<CR>" -- 关闭调试会话的 REPL
+    .. ":lua require'dapui'.close()<CR>" -- 关闭调试界面
+    .. ":lua require('dap').clear_breakpoints()<CR>" -- 清除断点
+    .. "<C-w>o<CR>", -- 切换到其他窗口
+  opt -- 使用上面定义的选项表
+)
+map( -- 关闭调试
+  "n", -- 在普通模式下执行
+  "<leader>4", -- 触发的键盘快捷键
+  ":lua require'dap'.close()<CR>" -- 关闭调试会话
+    .. ":lua require'dap'.terminate()<CR>" -- 终止调试会话
+    .. ":lua require'dap.repl'.close()<CR>" -- 关闭调试会话的 REPL
+    .. ":lua require'dapui'.close()<CR>" -- 关闭调试界面
+    .. ":lua require('dap').clear_breakpoints()<CR>" -- 清除断点
+    .. "<C-w>o<CR>", -- 切换到其他窗口
+  opt -- 使用上面定义的选项表
+)
+-- 开始/继续
+-- map("n", "<F5>", ":lua require'dap'.continue()<CR>", opt) -- 开始或继续调试
+-- map("n", "<F5>", ":lua execute_with_cd('powershell cexe')<CR>:lua require'dap'.continue()<CR>", opt) -- 开始或继续调试[编译并调试]
+
+-- 根据文件类型执行相应的调试功能
+-- 打开调试窗口
+map("n", "<F5>", ":lua debug_by_filetype()<CR>", opt)
+map("n", "<leader>5", ":lua debug_by_filetype()<CR>", opt)
+map("n", "<m-F5>", ":lua debug_by_filetype()<CR>", opt)
+
+-- 设置断.点
+map("n", "<F6>", ":lua require'dap'.toggle_breakpoint()<CR>", opt) -- 切换断点状态
+map("n", "<S-F6>", ":lua require'dap'.clear_breakpoints()<CR>", opt) -- 清除所有断点
+--  stepOver, stepOut, stepInto
+map("n", "<F8>", ":lua require'dap'.step_over()<CR>", opt) -- 单步执行
+map("n", "<S-F7>", ":lua require'dap'.step_out()<CR>", opt) -- 退出当前函数
+map("n", "<F7>", ":lua require'dap'.step_into()<CR>", opt) -- 进入当前函数
+-- 弹窗
+map("n", "<S-F8>", ":lua require'dapui'.eval()<CR>", opt) -- 在当前光标位置显示变量的值

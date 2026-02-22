@@ -32,27 +32,40 @@ dap.configurations.cpp = {
     type = "codelldb",
     request = "launch",
 
-    -- 获取可执行文件路径
     program = function()
-      local output
-      if file_output then
-        output = "/Output/"
-      else
-        output = "/"
-      end
-      -- 构建可执行文件的路径
-      -- return vim.fn.expand("%:p:h") .. "/output/" .. vim.fn.fnamemodify(vim.fn.expand("%:p"), ":t")
-      return vim.fn.expand("%:p:h") .. output .. vim.fn.fnamemodify(vim.fn.expand("%:p"), ":t:r")
-      -- return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+      return vim.fn.expand("%:p:h") .. "/Output/" .. vim.fn.fnamemodify(vim.fn.expand("%:p"), ":t:r")
     end,
 
-    -- 设置调试参数
     cwd = "${workspaceFolder}",
     stopOnEntry = false,
   },
 }
 
--- 将 C、Chead、Rust 的调试配置设置为与 C++ 相同
 dap.configurations.c = dap.configurations.cpp
 dap.configurations.h = dap.configurations.cpp
 dap.configurations.rust = dap.configurations.cpp
+
+return {
+  {
+    "rcarriga/nvim-dap-ui",
+    opts = {
+      floating = {
+        max_height = nil,
+        max_width = nil,
+        border = "rounded",
+        mappings = {
+          close = { "q", "<Esc>" },
+        },
+      },
+      layouts = {
+        {
+          elements = {
+            "console",
+          },
+          size = 0.5,
+          position = "right",
+        },
+      },
+    },
+  },
+}
